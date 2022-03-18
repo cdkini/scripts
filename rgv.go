@@ -16,15 +16,15 @@ var r = regexp.MustCompile("(.+)\\:(\\d+)\\:\\s*(.+)")
 const GlobalPadding int = 2
 
 type rgResult struct {
-	File    string
-	Line    string
-	Preview string
-	Padding int
+	file    string
+	line    string
+	preview string
+	padding int
 }
 
 func (r rgResult) string() string {
-	preview := strings.Repeat(" ", r.Padding) + r.Preview
-	return fmt.Sprintf("%s:%s%s", r.File, r.Line, preview)
+	preview := strings.Repeat(" ", r.padding) + r.preview
+	return fmt.Sprintf("%s:%s%s", r.file, r.line, preview)
 }
 
 func main() {
@@ -91,9 +91,9 @@ func parseResults(rawResults []string) (results []rgResult) {
 
 	for i := range results {
 		result := &results[i]
-		padding := longest - (len(result.File) + len(result.Line))
+		padding := longest - (len(result.file) + len(result.line))
 		if padding > 0 {
-			result.Padding += padding
+			result.padding += padding
 		}
 	}
 
