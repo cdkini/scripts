@@ -1,0 +1,7 @@
+#!/bin/bash
+
+files=$(rg "$1" -l)
+for file in $files; do
+    echo $file
+done
+echo $files | xargs sd "$1" "$2"
