@@ -114,7 +114,7 @@ func getIndexOfRgDelimiter(result string) (int, error) {
 }
 
 func reviewResultsInFile(results []rgResult) {
-	file, err := ioutil.TempFile(".", ".rg")
+	file, err := ioutil.TempFile(".", ".rgv")
 	if err != nil {
 		log.Fatal(err)
 	}
